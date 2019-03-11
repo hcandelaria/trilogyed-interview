@@ -9,10 +9,10 @@ For this challenge, we are going to build a python script, using [jupyter-notebo
   * `source activate [MyPythonDataEnv] && pip install citipy`
 * We then need to replace the content of [api_keys.py] with our own API Key from[OpenWeatherMap].
     1) [sign up](https://home.openweathermap.org/users/sign_up).
-    2) get the API Key from the email sent out(check spam box). *if* you already have an account [OpenWeatherMap]("https://home.openweathermap.org/api_keys") and login.
+    2) get the API Key from the email sent out(check spam box). *if* you already have an account [OpenWeatherMap](https://home.openweathermap.org/api_keys) and login.
     3) update the content of [api_keys.py] with our own API Key.
 
-* Our [Starter_code] already imports the depencies we will be using, including our [api_key]. It even gets the cities we need the weather from. This means we can focus on the important parts. But, we should spend sometime getting familiar with the [OpenWeatherMap API Documentation]("https://openweathermap.org/current").
+* Our [Starter_code] already imports the depencies we will be using, including our [api_key]. It even gets the cities we need the weather from. This means we can focus on the important parts. But, we should spend sometime getting familiar with the [OpenWeatherMap API Documentation](https://openweathermap.org/current).
 
 
 ## Requesting the data
@@ -22,15 +22,15 @@ For this challenge, we are going to build a python script, using [jupyter-notebo
   
 * You probably guessed the next step, for each element in the cities array we want to make an request to get the weather. And yes, you are right, we will append this results to a data list. However, we should also Keep in mind:
   1) We need the `JSON` responds from the results. Using the `.json()` method on the responds will do the trick.
-  2) We should clean the data, getting only the information we need from the result. [OpenWeatherMap API Example Respond]("https://samples.openweathermap.org/data/2.5/forecast?q=M%C3%BCnchen,DE&appid=b6907d289e10d714a6e88b30761fae22") can served as a guide.
+  2) We should clean the data, getting only the information we need from the result. [OpenWeatherMap API Example Respond](https://samples.openweathermap.org/data/2.5/forecast?q=M%C3%BCnchen,DE&appid=b6907d289e10d714a6e88b30761fae22) can served as a guide.
   3) We do not control the results we are getting, thus we need to create our code robust in order to handle these errors.
    
 **PRO TIP:**
   * We can print/pprint the respond, the sources documentation can be outdated.
   * We should handle each posible exception separately.
-    * Using the `raise_for_status` method to raise for any `HTTPError`. Be short to import `from requests.exceptions import HTTPError`
+    * Using the `raise_for_status` method to raise for any `HTTPError`. Let's make sure to import `from requests.exceptions import HTTPError`
     * `KeyError` for any data missing from the request
-  * We can use tools like [Postman]("https://www.getpostman.com/") to test the api and the results.
+  * We can use tools like [Postman](https://www.getpostman.com/) to test the api and the results.
 
 ```python
 # Unit format
@@ -66,6 +66,7 @@ for city in cities:
     except HTTPError:
         print("Response status code error. Skipping city...")
         pass
+
     # Handle error if missing data
     except KeyError:
         print("Data does not have sufficient information. Skipping city...")
