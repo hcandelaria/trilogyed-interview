@@ -29,7 +29,7 @@ For this challenge, we are going to build a python script, using [jupyter-notebo
   * We can print/pprint the respond, the sources documentation can be outdated.
   * We should handle each posible exception separately.
     * Using the `raise_for_status` method to raise for any `HTTPError`. Let's make sure to import `from requests.exceptions import HTTPError`
-    * `KeyError` for any data missing from the request
+    * `KeyError` for any data missing from the request.
   * We can use tools like [Postman](https://www.getpostman.com/) to test the api and the results.
 
 ```python
@@ -40,9 +40,14 @@ url = "http://api.openweathermap.org/data/2.5/weather?units=" + unit_format + "&
 # Results array
 city_data = []
 
+print("----------------");
+print("Fetch Data Begin");
+print("----------------");
+
 # Loop through all the cities in our list
 for city in cities:
-   try:
+
+    try:
         # Create a request to the API point
         res = requests.get(url+city);
 
@@ -61,7 +66,8 @@ for city in cities:
                           "Cloudiness": result["clouds"]["all"],
                           "Wind Speed": result["wind"]["speed"],
                           "Country": result["sys"]["country"],
-                          "Date": result["dt"]})  
+                          "Date": result["dt"]})
+
     # Handle status coder error
     except HTTPError:
         print("Response status code error. Skipping city...")
@@ -71,7 +77,14 @@ for city in cities:
     except KeyError:
         print("Data does not have sufficient information. Skipping city...")
         pass
+print("-------------------");
+print("Fetch Data Complete");
+print("-------------------");
 ```
+## Creating DataFrame
+
+
+
 
 ##  FAQ
     What is an API?
