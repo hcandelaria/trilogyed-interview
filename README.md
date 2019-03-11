@@ -17,8 +17,8 @@ For this challenge, we are going to build a python script, using [jupyter-notebo
 
 ## Requesting the data
 
-* First, lets structure our `url` to make `requests` to the `api`. In order to make a request, we need the `url` API point`http://api.openweathermap.org/data/2.5/weather?`, the parameters: `q={city_name}`, `units={units_format}` and `APPID={api_key}`.We found this from the [OpenWeatherMap Documentation]("https://openweathermap.org/current"):
-  * `url = "http://api.openweathermap.org/data/2.5/weather?units={units_format}&APPID={api_key}&q={city_name}"`
+* First, lets structure our `url` to make `requests` to the `api`. In order to make a request, we need the `url` API point`http://api.openweathermap.org/data/2.5/weather?`, the parameters: `q={ city_name }`, `units={ units_format }` and `APPID={ api_key }`.We found this from the [OpenWeatherMap Documentation]("https://openweathermap.org/current"):
+  * `url = "http://api.openweathermap.org/data/2.5/weather?units={ units_format }&APPID={ api_key }&q={ city_name }"`
   
 * You probably guessed the next step, for each element in the cities array we want to make an request to get the weather. And yes, you are right, we will append this results to a data list. However, we should also Keep in mind:
   1) We need the `JSON` responds from the results. Using the `.json()` method on the responds will do the trick.
@@ -35,7 +35,7 @@ For this challenge, we are going to build a python script, using [jupyter-notebo
 ```python
 # Unit format
 unit_format = "imperial"
-# API point, the {city_name} parameter will added for each city 
+# API point, the { city_name } parameter will added for each city 
 url = "http://api.openweathermap.org/data/2.5/weather?units=" + unit_format + "&APPID=" + api_key + "&q=" 
 # Results array
 city_data = []
@@ -58,15 +58,15 @@ for city in cities:
         result = res.json();
 
         # Append the City information into city_data list
-        city_data.append({"City": city, 
-                          "Lat": result["coord"]["lat"], 
-                          "Lng": result["coord"]["lon"], 
-                          "Max Temp": result["main"]["temp_max"],
-                          "Humidity": result["main"]["humidity"],
-                          "Cloudiness": result["clouds"]["all"],
-                          "Wind Speed": result["wind"]["speed"],
-                          "Country": result["sys"]["country"],
-                          "Date": result["dt"]})
+        city_data.append({  "City": city,
+                            "Lat": result["coord"]["lat"], 
+                            "Lng": result["coord"]["lon"], 
+                            "Max Temp": result["main"]["temp_max"],
+                            "Humidity": result["main"]["humidity"],
+                            "Cloudiness": result["clouds"]["all"],
+                            "Wind Speed": result["wind"]["speed"],
+                            "Country": result["sys"]["country"],
+                            "Date": result["dt"] })
 
     # Handle status coder error
     except HTTPError:
@@ -115,7 +115,97 @@ city_data_pd.count()
 city_data_pd.head()
 ```
 
+## Creating Data Visualization
 
+* We will now create the scatter plots for the data analysis using `Matplotlib.scatter()`. The altitude stays consistent and will be compare against ` max_temperature, humidity, cloudiness and wind_speed`.
+    * Example scatter plot: `plt.scatter(x, y, edgecolor, linewidths, marker, alpha, label)`.
+* We most also add the `title, ylabel and xlabel`.
+
+**PRO TIP:** Drawing a grid on the scatter plot, will help make it more reable.
+
+###### Temperature (F) vs. Latitude
+```python
+# Build scatter plot for latitude vs. Temperature
+plt.scatter(lats, 
+            max_temperature,
+            edgecolor="black", linewidths=1, marker="o", 
+            alpha=0.8, label="Cities")
+
+# Incorporate the other graph properties
+plt.title("City Latitude vs. Max Temperature (%s)" % time.strftime("%x"))
+plt.ylabel("Max Temperature (F)")
+plt.xlabel("Latitude")
+plt.grid(True)
+
+# Save the figure
+plt.savefig("output_data/Fig1.png")
+
+# Show plot
+plt.show()
+```
+
+###### Humidity (%) vs. Latitude
+
+```python
+# Build the scatter plots for latitude vs. humidity
+plt.scatter(lats, 
+            humidity,
+            edgecolor="black", linewidths=1, marker="o", 
+            alpha=0.8, label="Cities")
+
+# Incorporate the other graph properties
+plt.title("City Latitude vs. Humidity (%s)" % time.strftime("%x"))
+plt.ylabel("Humidity (%)")
+plt.xlabel("Latitude")
+# plt.grid(True)
+
+# Save the figure
+plt.savefig("output_data/Fig2.png")
+
+# Show plot
+plt.show()
+```
+
+###### Cloudiness (%) vs. Latitude
+```python
+# Build the scatter plots for latitude vs. cloudiness
+plt.scatter(lats, 
+            cloudiness,
+            edgecolor="black", linewidths=1, marker="o", 
+            alpha=0.8, label="Cities")
+
+# Incorporate the other graph properties
+plt.title("City Latitude vs. Cloudiness (%s)" % time.strftime("%x"))
+plt.ylabel("Cloudiness (%)")
+plt.xlabel("Latitude")
+plt.grid(True)
+
+# Save the figure
+plt.savefig("output_data/Fig3.png")
+
+# Show plot
+plt.show()
+```
+###### Wind Speed (mph) vs. Latitude
+```python
+# Build the scatter plots for latitude vs. wind speed
+plt.scatter(lats, 
+            wind_speed,
+            edgecolor="black", linewidths=1, marker="o", 
+            alpha=0.8, label="Cities")
+
+# Incorporate the other graph properties
+plt.title("City Latitude vs. Wind Speed (%s)" % time.strftime("%x"))
+plt.ylabel("Wind Speed (mph)")
+plt.xlabel("Latitude")
+plt.grid(True)
+
+# Save the figure
+plt.savefig("output_data/Fig4.png")
+
+# Show plot
+plt.show()
+```
 ##  FAQ
     What is an API?
     What is an API Key?
