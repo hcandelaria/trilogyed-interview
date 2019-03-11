@@ -49,7 +49,7 @@ print("----------------");
 
 # Loop through all the cities in our list
 for city in cities:
-    print("Processing request for " + citi)
+    print("Processing request for " + city)
     try:
         # Create a request to the API point
         res = requests.get(url+city);
