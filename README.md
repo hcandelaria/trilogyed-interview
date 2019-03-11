@@ -215,6 +215,27 @@ plt.savefig("output_data/Fig4.png")
 # Show plot
 plt.show()
 ```
+## Data Analisys
+
+* Final step, analising our data for each scatter plot to find any correlation.
+
+#### Temperature (F) vs. Latitude
+* replace with data analisys
+![Temperature (F) vs. Latitude](replace with outdata img)
+
+#### Humidity (%) vs. Latitude
+* replace with data analisys
+![Humidity (%) vs. Latitude](replace with outdata img)
+
+#### Cloudiness (%) vs. Latitude
+* replace with data analisys
+![Cloudiness (%) vs. Latitude](replace with outdata img)
+
+#### Wind Speed (mph) vs. Latitude
+* replace with data analisys
+![Wind Speed (mph) vs. Latitude](replace with outdata img)
+
+
 ##  FAQ
     What is an API?
     What is an API Key?
