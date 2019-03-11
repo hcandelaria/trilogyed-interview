@@ -83,7 +83,37 @@ print("-------------------");
 ```
 ## Creating DataFrame
 
+* In order to analyses our data and export it, we will need to create a `DataFrame`. Pandas can take `JSON` file and make a DataFrame right from it.
+* Exporting the file will be just as easy with the `to_csv` function we have used before. We can use the variable `output_data_file` pre-defined for the output. 
+* One extra step we want to do is to extract any of the data we will be comparing:
+  1)  Latitude
+  2)  Max Temperature
+  3)  Humidity
+  4)  Cloudiness
+  5)  Wind Speed
+   
+**PRO TIP:** Print the data to ensure we are getting the expected results.
 
+```python
+# Convert array of JSONs into Pandas DataFrame
+city_data_pd = pd.DataFrame(city_data)
+
+# Export the results from the API into a csv file
+city_data_pd.to_csv(output_data_file, index_label="City_ID")
+
+# Extract relevant fields from the DataFrame
+lats = city_data_pd["Lat"]
+max_temps = city_data_pd["Max Temp"]
+humidity = city_data_pd["Humidity"]
+cloudiness = city_data_pd["Cloudiness"]
+wind_speed = city_data_pd["Wind Speed"]
+
+# Show Record Count
+city_data_pd.count()
+
+# Display the City Data Frame
+city_data_pd.head()
+```
 
 
 ##  FAQ
