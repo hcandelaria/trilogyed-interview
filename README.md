@@ -32,7 +32,7 @@ For this challenge, we are going to build a python script, using `jupyter notebo
 **PRO TIP:**
   * We can print/pprint the respond, it's not the case for this example but, the sources documentation can be outdated.
   * We should handle each posible exception separately.
-    * Using the `raise_for_status` method to raise for any `HTTPError`. Let's make sure to import `from requests.exceptions import HTTPError`
+    * Using the `raise_for_status` method to raise for any `HTTPError`. Let's make sure to import `from requests.exceptions import HTTPError` with the rest of our import statements.
     * `KeyError` for any data missing from the request.
   * We can use tools like [Postman](https://www.getpostman.com/) to test the api and the results.
 
