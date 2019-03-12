@@ -4,6 +4,7 @@ For this challenge, we are going to build a python script, using `jupyter notebo
  
 ## Initializing
 
+* We we will be using the `starter_code` provided. Inside this folder we need to create a folder `output_data`, to store all the outputs. 
 * Since we are not too far off what we have used so far, we can skip creating a new conda environment and activate our current conda env. Follow by installing the [citipy] libary. Keep in mind, generally speaking it's good practice to create a new anaconda environment to install the depencies we will be using. 
   * `source activate [MyPythonDataEnv]` and then `pip install citipy` will do the trick.
     **or**
@@ -14,7 +15,7 @@ For this challenge, we are going to build a python script, using `jupyter notebo
       **if** you already have an account with `OpenWeatherMap` [navigate to this link](https://home.openweathermap.org/api_keys) and login.
     3) update the content of [api_keys.py] with our own API Key.
 
-* Our `Starter_code` already imports the depencies we will be using, including our `api_key`. It even gets the cities we need the weather from. Which means we can focus on the important parts. We should spend sometime getting familiar with the [OpenWeatherMap API Documentation](https://openweathermap.org/current).
+* Our `starter_code` already imports the depencies we will be using, including our `api_key` and `output path`. It even gets the cities we need the weather from. Which means we can focus on the important parts. We should spend sometime getting familiar with the [OpenWeatherMap API Documentation](https://openweathermap.org/current). Once you familiarised yourself with the documentation start `jupyter notebook` from `terminal` or `git bash`.
 
 
 ## Requesting the data
@@ -123,7 +124,7 @@ city_data_pd.head()
 
 ## Creating Data Visualization
 
-* We will now create the scatter plots for the data analysis using `Matplotlib.scatter()`. The altitude stays consistent and will be compare against ` max_temperature, humidity, cloudiness and wind_speed`.
+* We will now create the scatter plots for the data analysis using `Matplotlib.scatter()`. The altitude stays consistent and will be compare against ` max_temps, humidity, cloudiness and wind_speed`.
   * Example scatter plot: `plt.scatter(x, y, edgecolor, linewidths, marker, alpha, label)`.
 * We most also add the `title, ylabel and xlabel`.
 * As well as output the scatter plot in a `png` image file.
@@ -136,7 +137,7 @@ city_data_pd.head()
 ```python
 # Build scatter plot for latitude vs. Temperature
 plt.scatter(lats, 
-            max_temperature,
+            max_temps,
             edgecolor="black", linewidths=1, marker="o", 
             alpha=0.8, label="Cities")
 
