@@ -5,7 +5,7 @@ For this challenge, we are going to build a python script, using `jupyter notebo
 ## Initializing
 
 * We we will be using the `starter_code` provided. Inside this folder we need to create a folder `output_data`, to store all the outputs. 
-* Since we are not too far off what we have used so far, we can skip creating a new conda environment and activate our current conda env. Follow by installing the [citipy] libary. Keep in mind, generally speaking it's good practice to create a new anaconda environment to install the depencies we will be using. 
+* Since we are not too far off what we have used so far, we can skip creating a new conda environment and activate our current conda environment. Followed by installing the [citipy] libary. Keep in mind, generally speaking it's good practice to create a new anaconda environment to install the depencies we will be using. 
   * `source activate [MyPythonDataEnv]` and then `pip install citipy` will do the trick.
     **or**
   * `source activate [MyPythonDataEnv] && pip install citipy`
@@ -15,23 +15,23 @@ For this challenge, we are going to build a python script, using `jupyter notebo
       **if** you already have an account with `OpenWeatherMap` [navigate to this link](https://home.openweathermap.org/api_keys) and login.
     3) update the content of [api_keys.py] with our own API Key.
 
-* Our `starter_code` already imports the depencies we will be using, including our `api_key` and `output path`. It even gets the cities we need the weather from. Which means we can focus on the important parts. We should spend sometime getting familiar with the [OpenWeatherMap API Documentation](https://openweathermap.org/current). Once you familiarised yourself with the documentation start `jupyter notebook` from `terminal` or `git bash`.
+* Our `starter_code` already imports the depencies we will be using, including our `api_key` and `output path`. It even gets the cities we need the weather from. This means we can focus on the important parts. We should spend sometime getting familiar with the [OpenWeatherMap API Documentation](https://openweathermap.org/current). Once you familiarize yourself with the documentation start `jupyter notebook` from `terminal` or `git bash`.
 
 
 ## Requesting the data
 
-* First, lets structure our `url` to make `requests` to the `api`. In order to make a request, we need the `url` API point`http://api.openweathermap.org/data/2.5/weather?`, the parameters: `q={ city_name }`, `units={ units_format }` and `APPID={ api_key }`.We found this from the [OpenWeatherMap Documentation]("https://openweathermap.org/current"):
+* First, lets build our `url` to make `requests` to the `API`. In order to make a request, we need the `url` API point`http://api.openweathermap.org/data/2.5/weather?`, the parameters: `q={ city_name }`, `units={ units_format }` and `APPID={ api_key }`.We found this from the [OpenWeatherMap Documentation]("https://openweathermap.org/current"):
   * `url = "http://api.openweathermap.org/data/2.5/weather?units={ units_format }&APPID={ api_key }&q={ city_name }"`
-  * Each of these values in our url will be replace by a variable.
+  * Each of these values in our url will be replaced by a variable.
     * for example: `units_format = "imperial"` to get the temperature in fahrenheit.
-* You probably guessed the next step, for each element in the cities array we want to make an request to get the weather. And yes, you are right, we will append the results to a data list. However, we should also Keep in mind:
-  1) We need the `JSON` responds from the results. Using the `.json()` method on the responds will do the trick.
-  2) We should clean the data, getting only the information we need from the result. [OpenWeatherMap API Example Respond](https://samples.openweathermap.org/data/2.5/forecast?q=M%C3%BCnchen,DE&appid=b6907d289e10d714a6e88b30761fae22) can served as a guide.
+* You have probably guessed the next step. For each element in the cities array we want to make a request to get the weather. And yes, you are right, we will append the results to a data list. However, we should also Keep in mind:
+  1) We need the `JSON` response from the results. Using the `.json()` method on the response will do the trick.
+  2) We should clean the data, getting only the information we need from the result. [OpenWeatherMap API Example Response](https://samples.openweathermap.org/data/2.5/forecast?q=M%C3%BCnchen,DE&appid=b6907d289e10d714a6e88b30761fae22) can serve as a guide.
   3) We do not control the results we are getting, thus we need to create our code robust in order to handle these errors.
    
 **PRO TIP:**
-  * We can print/pprint the respond, it's not the case for this example but, the sources documentation can be outdated.
-  * We should handle each posible exception separately.
+  * We can print/pprint the response, it's not the case for this example but, the sources documentation can be outdated.
+  * We should handle each possible exception separately.
     * Using the `raise_for_status` method to raise for any `HTTPError`. Let's make sure to import `from requests.exceptions import HTTPError` with the rest of our import statements.
     * `KeyError` for any data missing from the request.
   * We can use tools like [Postman](https://www.getpostman.com/) to test the api and the results.
@@ -89,7 +89,7 @@ print("-------------------");
 ```
 ## Creating DataFrame
 
-* In order to analyses our data and export it, we will need to create a `DataFrame`. Pandas can parse `JSON` file and make a DataFrame right from it.
+* In order to analyze our data and export it, we will need to create a `DataFrame`. Pandas can parse `JSON` file and make a DataFrame right from it.
 * Exporting the file will be just as easy with the `to_csv` function we have used before. We can use the variable `output_data_file` pre-defined for the output. 
 * We want to also extract any of the data we will be comparing:
   1)  Latitude
@@ -124,14 +124,14 @@ city_data_pd.head()
 
 ## Creating Data Visualization
 
-* We will now create the scatter plots for the data analysis using `Matplotlib.scatter()`. The altitude stays consistent and will be compare against ` max_temps, humidity, cloudiness and wind_speed`.
+* We can now create the scatter plots for the data analysis using `Matplotlib.scatter()`. The altitude stays consistent and will be compared against ` max_temps, humidity, cloudiness and wind_speed`.
   * Example scatter plot: `plt.scatter(x, y, edgecolor, linewidths, marker, alpha, label)`.
-* We most also add the `title, ylabel and xlabel`.
-* As well as output the scatter plot in a `png` image file.
-* Finally, display the scatter plt for our analisys. 
+* We must also add the `title, ylabel and xlabel`.
+* Additionally, output the scatter plot to a `png` image file.
+* Finally, display the scatter plot for our analisys. 
 
 **PRO TIP:**
-  * Draw a grid on the scatter plot, will help make it more reable.
+  * Draw a grid on the scatter plot, will help make it more readable.
 
 #### Temperature (F) vs. Latitude
 ```python
@@ -216,12 +216,12 @@ plt.savefig("output_data/Fig4.png")
 # Show plot
 plt.show()
 ```
-## Data Analisys
+## Data Analysis
 
-* Final step, analising our data for each scatter plot to find any correlation.
+* For your final step, analyze your data for each scatter plot to find any correlation.
 
 #### Temperature (F) vs. Latitude
-* The concentration is between 60(F) to around 85(F) around the equator. Between latitude -20 to 20. The Temperature increases as we get closer to the equator and then decreases as we move away from the equator, creating a negative parabola. Consequently, weather is warmer around the equator.
+* The concentration is between 60(F) to around 85(F) around the equator. Between latitude -20 to 20. The Temperature increases as we get closer to the equator and then decreases as we move away from the equator, creating a upside down parabola. Consequently, weather is warmer around the equator.
 
 ![Temperature (F) vs. Latitude](./Solved/output_data/Fig1.png)
 
@@ -231,12 +231,12 @@ plt.show()
 ![Humidity (%) vs. Latitude](./Solved/output_data/Fig2.png)
 
 #### Cloudiness (%) vs. Latitude
-* The concentration seems to be around 0% or around 80%, mostly scatter around the plot, irrespectively of the latitue. Consenquently, latitude does not affect Cloudiness.
+* The concentration seems to be around 0% or around 80%, mostly scattered around the plot, irrespectively of the latitude. Consenquently, latitude does not affect Cloudiness.
 
 ![Cloudiness (%) vs. Latitude](./Solved/output_data/Fig3.png)
 
 #### Wind Speed (mph) vs. Latitude
-* The concentration seems to be around 0mph to 10mph, irrespectively of the latitue. Consenquently, latitude does not affect Cloudiness.
+* The concentration seems to be around 0mph to 10mph, irrespectively of the latitude. Consenquently, latitude does not affect Cloudiness.
 
 ![Wind Speed (mph) vs. Latitude](./Solved/output_data/Fig4.png)
 
