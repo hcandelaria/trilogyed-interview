@@ -1,5 +1,12 @@
 # Lesson 6: WeatherPy #
 
+## Table of contents
+ * [Initializing](#Initializing)
+ * [Requesting Data](#Requesting-Data)
+ * [Creating DataFrame](#Creating-DataFrame)
+ * [Creating Data Visualization](#Creating-Data-Visualization)
+ * [Creating Data Visualization](#Creating-Data-Visualization)
+
 For this challenge, we are going to build a python script, using `jupyter notebook` and `Matplotlib`, to analyse the weather data from various cities and create visualizations. We will first get the cities using [citipy library](https://pypi.python.org/pypi/citipy) and then get the weather from [OpenWeatherMap API](https://openweathermap.org/api) in a `JSON` format.
  
 ## Initializing
@@ -18,7 +25,7 @@ For this challenge, we are going to build a python script, using `jupyter notebo
 * Our `starter_code` already imports the depencies we will be using, including our `api_key` and `output path`. It even gets the cities we need the weather from. This means we can focus on the important parts. We should spend sometime getting familiar with the [OpenWeatherMap API Documentation](https://openweathermap.org/current). Once you familiarize yourself with the documentation start `jupyter notebook` from `terminal` or `git bash`.
 
 
-## Requesting the data
+## Requesting Data
 
 * First, lets build our `url` to make `requests` to the `API`. In order to make a request, we need the `url` API point`http://api.openweathermap.org/data/2.5/weather?`, the parameters: `q={ city_name }`, `units={ units_format }` and `APPID={ api_key }`.We found this from the [OpenWeatherMap Documentation]("https://openweathermap.org/current"):
   * `url = "http://api.openweathermap.org/data/2.5/weather?units={ units_format }&APPID={ api_key }&q={ city_name }"`
@@ -242,6 +249,6 @@ plt.show()
 
 
 ##  FAQ
-    [What is an API?](https://en.wikipedia.org/wiki/Application_programming_interface)
-    [What is JSON?](https://www.w3schools.com/whatis/whatis_json.asp)
+    * [What is an API?](https://en.wikipedia.org/wiki/Application_programming_interface)
+    *[What is JSON](https://www.w3schools.com/whatis/whatis_json.asp)
 
