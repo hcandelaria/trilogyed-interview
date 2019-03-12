@@ -221,19 +221,23 @@ plt.show()
 * Final step, analising our data for each scatter plot to find any correlation.
 
 #### Temperature (F) vs. Latitude
-* replace with data analisys
+* The concentration is between 60(F) to around 85(F) around the equator. Between latitude -20 to 20. The Temperature increases as we get closer to the equator and then decreases as we move away from the equator, creating a negative parabola. Consequently, weather is warmer around the equator.
+
 ![Temperature (F) vs. Latitude](./Solved/output_data/Fig1.png)
 
 #### Humidity (%) vs. Latitude
-* replace with data analisys
+* The concentration is between 80% to 100%, irrespectively of the latitude. Consequently, latitude doesn't affect humidity.
+
 ![Humidity (%) vs. Latitude](./Solved/output_data/Fig2.png)
 
 #### Cloudiness (%) vs. Latitude
-* replace with data analisys
+* The concentration seems to be around 0% or around 80%, mostly scatter around the plot, irrespectively of the latitue. Consenquently, latitude does not affect Cloudiness.
+
 ![Cloudiness (%) vs. Latitude](./Solved/output_data/Fig3.png)
 
 #### Wind Speed (mph) vs. Latitude
-* replace with data analisys
+* The concentration seems to be around 0mph to 10mph, irrespectively of the latitue. Consenquently, latitude does not affect Cloudiness.
+
 ![Wind Speed (mph) vs. Latitude](./Solved/output_data/Fig4.png)
 
 
