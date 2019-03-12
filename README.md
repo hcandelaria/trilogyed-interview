@@ -1,6 +1,6 @@
 # Lesson 6: WeatherPy #
 
-For this challenge, we are going to build a python script, using `jupyter notebook` and `Matplotlib`, to analyse the weather data from various cities and create visualisations. We will first get the cities using [citipy library](https://pypi.python.org/pypi/citipy) and then get the weather from [OpenWeatherMap API](https://openweathermap.org/api) in a `JSON` format.
+For this challenge, we are going to build a python script, using `jupyter notebook` and `Matplotlib`, to analyse the weather data from various cities and create visualizations. We will first get the cities using [citipy library](https://pypi.python.org/pypi/citipy) and then get the weather from [OpenWeatherMap API](https://openweathermap.org/api) in a `JSON` format.
  
 ## Initializing
 
@@ -222,19 +222,19 @@ plt.show()
 
 #### Temperature (F) vs. Latitude
 * replace with data analisys
-![Temperature (F) vs. Latitude](replace with outdata img)
+![Temperature (F) vs. Latitude](./Solved/output_data/Fig1.png)
 
 #### Humidity (%) vs. Latitude
 * replace with data analisys
-![Humidity (%) vs. Latitude](replace with outdata img)
+![Humidity (%) vs. Latitude](./Solved/output_data/Fig2.png)
 
 #### Cloudiness (%) vs. Latitude
 * replace with data analisys
-![Cloudiness (%) vs. Latitude](replace with outdata img)
+![Cloudiness (%) vs. Latitude](./Solved/output_data/Fig3.png)
 
 #### Wind Speed (mph) vs. Latitude
 * replace with data analisys
-![Wind Speed (mph) vs. Latitude](replace with outdata img)
+![Wind Speed (mph) vs. Latitude](./Solved/output_data/Fig4.png)
 
 
 ##  FAQ
