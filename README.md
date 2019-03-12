@@ -174,7 +174,7 @@ plt.scatter(lats,
 plt.title("City Latitude vs. Humidity (%s)" % time.strftime("%x"))
 plt.ylabel("Humidity (%)")
 plt.xlabel("Latitude")
-# plt.grid(True)
+plt.grid(True)
 
 # Save the figure
 plt.savefig("output_data/Fig2.png")
@@ -249,6 +249,6 @@ plt.show()
 
 
 ##  FAQ
-    * [What is an API?](https://en.wikipedia.org/wiki/Application_programming_interface)
-    *[What is JSON](https://www.w3schools.com/whatis/whatis_json.asp)
+  * What is an API? [wikipedia](https://en.wikipedia.org/wiki/Application_programming_interface)
+  * What is JSON? [w3schools](https://www.w3schools.com/whatis/whatis_json.asp)
 
