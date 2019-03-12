@@ -242,7 +242,6 @@ plt.show()
 
 
 ##  FAQ
-    What is an API?
-    What is an API Key?
-    What is JSON?
+    [What is an API?](https://en.wikipedia.org/wiki/Application_programming_interface)
+    [What is JSON?](https://www.w3schools.com/whatis/whatis_json.asp)
 
